@@ -1,0 +1,17 @@
+<h1>Dashboard</h1>
+<p>
+    Bienvenue {{ user.name }}, que faisons-nous aujourd'hui ?
+</p>
+
+<ul>
+    <li *ngFor="let skill of skills">
+        {{ skill.name }}
+        <img *ngIf="skill.logo" [src]="skill.logo" alt="">
+    </li>
+</ul>
+
+<ul>
+    <li *ngFor="let client of clients">
+        {{ client.name }}
+    </li>
+</ul>
