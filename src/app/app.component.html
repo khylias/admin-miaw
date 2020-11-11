@@ -1,17 +1,22 @@
-<header>
-    <nav>
-        <ul>
-            <li>
-                <a routerLink="/dashboard" routerLinkActive="router-link-active">Dashboard</a>
-            </li>
-            <li>
-                <a routerLink="/clients" routerLinkActive="router-link-active">Clients</a>
-            </li>
-            <li>
-                <a routerLink="/competences" routerLinkActive="router-link-active">Compétences</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav mode="side" opened>
+        <header>
+            <nav>
+                <mat-nav-list>
+                    <mat-list-item>
+                        <a routerLink="/dashboard" routerLinkActive="router-link-active">Dashboard</a>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <a routerLink="/clients" routerLinkActive="router-link-active">Clients</a>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <a routerLink="/competences" routerLinkActive="router-link-active">Compétences</a>
+                    </mat-list-item>
+                </mat-nav-list>
+            </nav>
+        </header>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
