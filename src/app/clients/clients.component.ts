@@ -7,6 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientsComponent implements OnInit {
 
+    clients = [
+        {
+            name: 'La Cantiine',
+        },
+        {
+            name: 'Aquarium de La Rochelle',
+        },
+        {
+            name: 'Le Bathyscaphe',
+        }
+    ];
     constructor() { }
 
     ngOnInit(): void {

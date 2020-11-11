@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { SkillsComponent } from './skills/skills.component';
 import { ClientsComponent } from './clients/clients.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ClientItemComponent } from './shared/client-item/client-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SkillsComponent,
     ClientsComponent,
-    DashboardComponent
+    DashboardComponent,
+    ClientItemComponent
   ],
   imports: [
     BrowserModule,
