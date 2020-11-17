@@ -10,6 +10,7 @@ import { ClientsComponent } from './clients/clients.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ClientItemComponent } from './shared/client-item/client-item.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClientsService } from './services/clients.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatSidenavModule,
     MatListModule
   ],
-  providers: [],
+  providers: [
+      ClientsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

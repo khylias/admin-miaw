@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ClientsService } from '../services/clients.service';
+import { Client } from '../models/client';
 @Component({
     selector: 'app-clients',
     templateUrl: './clients.component.html',
@@ -7,20 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientsComponent implements OnInit {
 
-    clients = [
-        {
-            name: 'La Cantiine',
-        },
-        {
-            name: 'Aquarium de La Rochelle',
-        },
-        {
-            name: 'Le Bathyscaphe',
-        }
-    ];
-    constructor() { }
+    clients: Client[] = [];
+    constructor(private clientsService: ClientsService) { }
 
     ngOnInit(): void {
+        this.getClients();
+    }
+
+    getClients() {
+        this.clients = this.clientsService.getClients();
     }
 
 }
