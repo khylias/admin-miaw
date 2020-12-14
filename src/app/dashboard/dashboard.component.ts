@@ -34,9 +34,12 @@ export class DashboardComponent implements OnInit {
     constructor(private clientsService: ClientsService) { }
 
     ngOnInit(): void {
+        this.getClients();
     }
 
     getClients() {
-        this.clients = this.clientsService.getClients();
+        this.clientsService.getClients().subscribe(response => {
+            this.clients = response;
+        });
     }
 }

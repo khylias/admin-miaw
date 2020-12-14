@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClientsComponent } from './clients/clients.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SkillsComponent } from './skills/skills.component';
-
+import { ClientFormComponent } from './client-form/client-form.component';
 const routes: Routes = [
     {
         path: 'competences',
@@ -12,7 +12,16 @@ const routes: Routes = [
     },
     {
         path: 'clients',
-        component: ClientsComponent
+        children: [
+            {
+                path: '',
+                component: ClientsComponent
+            },
+            {
+                path: 'nouveau',
+                component: ClientFormComponent
+            },
+        ]
     },
     {
         path: 'dashboard',
