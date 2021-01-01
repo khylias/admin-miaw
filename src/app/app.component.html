@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-    <mat-sidenav mode="side" opened>
+    <mat-sidenav mode="side" opened *ngIf="tokenStorageService.isAuthenticate()">
         <header>
             <nav>
                 <mat-nav-list>
