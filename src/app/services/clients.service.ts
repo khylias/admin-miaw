@@ -34,4 +34,8 @@ export class ClientsService {
     getClient(id: string): Observable<any> {
         return this.httpClient.get('http://localhost:3000/clients/' + id);
     }
+
+    updateClient(id, client: Client): Observable<any> {
+        return this.httpClient.put('http://localhost:3000/clients/' + id, client);
+    }
 }

@@ -32,6 +32,20 @@ export class ClientFormComponent implements OnInit {
         });
     }
 
+    update() {
+        this.clientsService.updateClient(this.route.snapshot.paramMap.get('id'), this.form.value).subscribe(response => {
+
+        })
+    }
+
+    submit() {
+        if(this.isEdit) {
+            this.update();
+        } else {
+            this.add();
+        }
+    }
+
     initForm() {
         this.form = this.fb.group({
             name: ['', [Validators.required, Validators.minLength(2)]],
