@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from '../models/client';
 import { ClientsService } from '../services/clients.service';
 
@@ -10,7 +10,7 @@ import { ClientsService } from '../services/clients.service';
 })
 export class ClientComponent implements OnInit {
     client: Client;
-    constructor(private clientsService: ClientsService, private route: ActivatedRoute) { }
+    constructor(private clientsService: ClientsService, private route: ActivatedRoute, private router: Router) { }
 
     ngOnInit(): void {
         this.getData();
@@ -19,6 +19,12 @@ export class ClientComponent implements OnInit {
     getData() {
         this.clientsService.getClient(this.route.snapshot.paramMap.get('id')).subscribe(response => {
             this.client = response;
+        });
+    }
+
+    deleteClient() {
+        this.clientsService.deleteClient(this.route.snapshot.paramMap.get('id')).subscribe(response => {
+            this.router.navigate(['/clients']);
         });
     }
 }

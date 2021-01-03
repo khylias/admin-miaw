@@ -1,4 +1,8 @@
-<a routerLink="nouveau">Ajouter un client</a>
+<mat-toolbar color="primary">
+    <a mat-button routerLink="nouveau">
+        Créer un client
+    </a>
+</mat-toolbar>
 <ul>
     <li *ngFor="let client of clients">
         <app-client-item [client]="client"></app-client-item>
