@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+    <a mat-button routerLink="/clients">
+        <mat-icon>arrow_back</mat-icon>
+    </a>
+    <a mat-button routerLink="edit">
+        <mat-icon>edit</mat-icon>
+    </a>
+</mat-toolbar>
+<router-outlet>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                {{ client.name }}
+            </mat-card-title>
+            <mat-card-subtitle>
+                <mat-chip-list>
+                    <mat-chip>{{ client.type }}</mat-chip>
+                </mat-chip-list>
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                <span class="block">Date du projet :</span>
+                {{ client.date }}
+            </p>
+            <p>
+                <span class="block">Description :</span>
+                {{ client.description }}
+            </p>
+        </mat-card-content>
+    </mat-card>
+</router-outlet>

@@ -34,5 +34,6 @@
         </mat-select>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Ajouter le client</button>
+    <button mat-raised-button color="primary" type="submit" *ngIf="!isEdit">Ajouter le client</button>
+    <button mat-raised-button color="primary" type="submit" *ngIf="isEdit">Modifier le client</button>
 </form>

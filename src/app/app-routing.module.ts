@@ -8,6 +8,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { LoginComponent } from './login/login.component';
+import { ClientComponent } from './client/client.component';
+
 const routes: Routes = [
     {
         path: 'competences',
@@ -29,6 +31,17 @@ const routes: Routes = [
             {
                 path: 'nouveau',
                 component: ClientFormComponent
+            },
+            {
+                path: ':id',
+                component: ClientComponent,
+            },
+            {
+                path: ':id/edit',
+                component: ClientFormComponent,
+                data: {
+                    edit: true
+                }
             },
         ]
     },

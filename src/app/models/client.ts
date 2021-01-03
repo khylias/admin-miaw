@@ -3,4 +3,5 @@ export interface Client {
     description?: String;
     date?: String;
     type?: String;
+    id?: String;
 }

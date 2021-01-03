@@ -30,4 +30,8 @@ export class ClientsService {
     addClient(data: Client) {
         return this.httpClient.post('http://localhost:3000/clients', data);
     }
+    
+    getClient(id: string): Observable<any> {
+        return this.httpClient.get('http://localhost:3000/clients/' + id);
+    }
 }

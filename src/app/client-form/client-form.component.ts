@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { ClientsService } from '../services/clients.service';
 
@@ -10,15 +10,20 @@ import { ClientsService } from '../services/clients.service';
     styleUrls: ['./client-form.component.scss']
 })
 export class ClientFormComponent implements OnInit {
-    name = '';
     public form: FormGroup;
+    isEdit = false;
 
     constructor(private clientsService: ClientsService, 
         private fb: FormBuilder, 
-        private router: Router) { }
+        private router: Router,
+        private route: ActivatedRoute) { }
 
     ngOnInit(): void {
         this.initForm();
+        this.isEdit = this.route.snapshot.data.edit;
+        if(this.isEdit) {
+            this.getData();
+        }
     }
 
     add() {
@@ -33,6 +38,12 @@ export class ClientFormComponent implements OnInit {
             description: [''],
             date: [''],
             type: ['']
+        });
+    }
+
+    getData() {
+        this.clientsService.getClient(this.route.snapshot.paramMap.get('id')).subscribe(response => {
+            this.form.patchValue(response);
         });
     }
 }

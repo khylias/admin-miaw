@@ -9,6 +9,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -26,6 +30,7 @@ import { TokenStorageService } from './services/token-storage.service';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { LoginComponent } from './login/login.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { ClientComponent } from './client/client.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +40,8 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
         DashboardComponent,
         ClientItemComponent,
         ClientFormComponent,
-        LoginComponent
+        LoginComponent,
+        ClientComponent
     ],
     imports: [
         BrowserModule,
@@ -53,7 +59,11 @@ import { NgxWebstorageModule } from 'ngx-webstorage';
         MatSelectModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        MatButtonModule
+        MatButtonModule,
+        MatCardModule,
+        MatChipsModule,
+        MatToolbarModule,
+        MatIconModule
     ],
     providers: [
         ClientsService,
