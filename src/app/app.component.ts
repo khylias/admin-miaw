@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { TokenStorageService } from './services/token-storage.service';
 
 @Component({
@@ -7,5 +8,10 @@ import { TokenStorageService } from './services/token-storage.service';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    constructor(public tokenStorageService: TokenStorageService) {}
+    constructor(public tokenStorageService: TokenStorageService, private router: Router) {}
+
+    disconnect() {
+        this.tokenStorageService.deleteToken();
+        this.router.navigate(['/connexion']);
+    }
 }

@@ -1,0 +1,46 @@
+.flex {
+    &-column {
+        display: flex;
+        flex-direction: column;
+    }
+    &-row {
+        display: flex;
+        flex-direction: row;
+    }
+    &box {
+        display: flex;
+    }
+}
+
+.flex-item {
+    &-right {
+        margin-left: auto !important;
+    }
+
+    &-left {
+        margin-right: auto !important;
+    }
+}
+
+$aligns: center, start, end, space-between, space-around;
+
+@each $align in $aligns {
+  .jc-#{$align} {
+      justify-content: $align;
+  }
+}
+
+.ai-center {
+    align-items: center;
+}
+
+.block {
+    display: block;
+}
+
+.well {
+    background-color: white;
+    padding: 10px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}

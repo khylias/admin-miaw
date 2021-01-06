@@ -1,39 +1,53 @@
-<form [formGroup]="form" (ngSubmit)="submit()">
-    <mat-form-field>
-        <mat-label for="name">Nom</mat-label>
-        <input type="text" matInput formControlName="name" id="name">
-
-        <mat-error>
-            <span *ngIf="form.get('name').hasError('required')">
-                Le nom est obligatoire.
-            </span>
-            <span *ngIf="form.get('name').hasError('minlength')">
-                La description doit comporter plus de 2 caractères.
-            </span>
-        </mat-error>
-    </mat-form-field>
-
-    <mat-form-field>
-        <mat-label for="description">Description</mat-label>
-        <textarea matInput formControlName="description" name="description" id="description" cols="30" rows="10"></textarea>
-    </mat-form-field>
-
-    <mat-form-field>
-        <mat-label for="date">Date du projet</mat-label>
-        <input matInput formControlName="date" name="date" id="date" [matDatepicker]="picker">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-
-    <mat-form-field>
-        <mat-label for="type">Type de projet</mat-label>
-        <mat-select formControlName="type" name="type" id="type">
-            <mat-option value="site">Site Web</mat-option>
-            <mat-option value="seo">Référencement</mat-option>
-            <mat-option value="design">Webdesign</mat-option>
-        </mat-select>
-    </mat-form-field>
-
-    <button mat-raised-button color="primary" type="submit" *ngIf="!isEdit">Ajouter le client</button>
-    <button mat-raised-button color="primary" type="submit" *ngIf="isEdit">Modifier le client</button>
-</form>
+<mat-toolbar color="primary">
+    <a mat-button routerLink="/clients">
+        <mat-icon>arrow_back</mat-icon>
+    </a>
+    <span *ngIf="isEdit">Modification du client</span>
+    <span *ngIf="!isEdit">Nouveau client</span>
+</mat-toolbar>
+<section class="mx-2 mt-2">
+    <form [formGroup]="form" (ngSubmit)="submit()" class="flex-column well">
+        <mat-form-field>
+            <mat-label for="name">Nom</mat-label>
+            <input type="text" matInput formControlName="name" id="name">
+            
+            <mat-error>
+                <span *ngIf="form.get('name').hasError('required')">
+                    Le nom est obligatoire.
+                </span>
+                <span *ngIf="form.get('name').hasError('minlength')">
+                    La description doit comporter plus de 2 caractères.
+                </span>
+            </mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label for="description">Description</mat-label>
+            <textarea matInput formControlName="description" name="description" id="description" cols="30" rows="5"></textarea>
+        </mat-form-field>
+        
+        <div class="flex-row">
+            <mat-form-field>
+                <mat-label for="date">Date du projet</mat-label>
+                <input matInput formControlName="date" name="date" id="date" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            
+            <mat-form-field class="ml-2">
+                <mat-label for="type">Type de projet</mat-label>
+                <mat-select formControlName="type" name="type" id="type">
+                    <mat-option value="site">Site Web</mat-option>
+                    <mat-option value="seo">Référencement</mat-option>
+                    <mat-option value="design">Webdesign</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        
+        <div class="flex-row flex-item-right">
+            <a mat-button routerLink="/clients" class="mr-2">Annuler</a>
+            <button mat-raised-button color="primary" type="submit" *ngIf="!isEdit">Ajouter le client</button>
+            <button mat-raised-button color="primary" type="submit" *ngIf="isEdit">Modifier le client</button>
+        </div>
+    </form>
+</section>

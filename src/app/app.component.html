@@ -1,7 +1,7 @@
 <mat-sidenav-container>
     <mat-sidenav mode="side" opened *ngIf="tokenStorageService.isAuthenticate()">
         <header>
-            <nav>
+            <nav class="flex-column jc-space-between">
                 <mat-nav-list>
                     <mat-list-item>
                         <a routerLink="/dashboard" routerLinkActive="router-link-active">Dashboard</a>
@@ -13,6 +13,9 @@
                         <a routerLink="/competences" routerLinkActive="router-link-active">Compétences</a>
                     </mat-list-item>
                 </mat-nav-list>
+                <button mat-button (click)="disconnect()">
+                    Déconnexion
+                </button>
             </nav>
         </header>
     </mat-sidenav>

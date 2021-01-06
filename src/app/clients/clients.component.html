@@ -1,10 +1,20 @@
-<mat-toolbar color="primary">
-    <a mat-button routerLink="nouveau">
-        Créer un client
+<mat-toolbar color="primary" class="mb-4">
+    <h1>Clients</h1>
+    <a mat-button routerLink="nouveau" class="flex-item-right">
+        <mat-icon>person_add_alt_1</mat-icon>
     </a>
 </mat-toolbar>
-<ul>
-    <li *ngFor="let client of clients">
-        <app-client-item [client]="client"></app-client-item>
-    </li>
-</ul>
+
+<section class="mx-2">
+    <ul *ngIf="clients.length; else noData" class="list">
+        <li *ngFor="let client of clients">
+            <app-client-item [client]="client"></app-client-item>
+        </li>
+    </ul>
+</section>
+
+<ng-template #noData>
+    <p class="flexbox jc-center">
+        Aucun client...
+    </p>
+</ng-template>

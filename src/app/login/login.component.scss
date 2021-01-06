@@ -1,0 +1,10 @@
+@import "src/theme/colors";
+
+section {
+    background-color: var(--color-primary);
+    height: 100%;
+}
+
+form {
+    max-width: 80%;
+}

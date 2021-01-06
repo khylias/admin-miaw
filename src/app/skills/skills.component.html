@@ -1,6 +1,14 @@
-<ul>
-    <li *ngFor="let skill of skills">
-        {{ skill.name }}
-        <img *ngIf="skill.logo" [src]="skill.logo" alt="">
-    </li>
-</ul>
+<mat-toolbar color="primary" class="mb-4">
+    <h1>Compétences</h1>
+    <!-- <a mat-button routerLink="nouveau" class="flex-item-right">
+        <mat-icon>control_point</mat-icon>
+    </a> -->
+</mat-toolbar>
+<section class="mx-2">
+    <ul class="list">
+        <li *ngFor="let skill of skills">
+            {{ skill.name }}
+            <img *ngIf="skill.logo" [src]="skill.logo" alt="">
+        </li>
+    </ul>
+</section>

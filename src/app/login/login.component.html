@@ -1,11 +1,25 @@
-<form [formGroup]="form" (ngSubmit)="login()">
-    <mat-form-field>
-        <mat-label>Identifiant</mat-label>
-        <input type="text" matInput formControlName="username" id="login">
-    </mat-form-field>
-    <mat-form-field>
-        <mat-label>Mot de passe</mat-label>
-        <input type="password" matInput formControlName="password" id="password">
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Se connecter</button>
-</form>
+
+<section class="flexbox ai-center">
+    <form [formGroup]="form" (ngSubmit)="login()" class="well mx-auto flex-column">
+        <h1>Admin MIAW</h1>
+        <mat-form-field>
+            <mat-label>Identifiant</mat-label>
+            <input type="text" matInput formControlName="username" id="login">
+            <mat-error>
+                <span *ngIf="form.get('username').hasError('required')">
+                    L'identifiant est obligatoire.
+                </span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Mot de passe</mat-label>
+            <input type="password" matInput formControlName="password" id="password">
+            <mat-error>
+                <span *ngIf="form.get('password').hasError('required')">
+                    Le mot de passe est obligatoire.
+                </span>
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="mt-2" type="submit">Se connecter</button>
+    </form>
+</section>

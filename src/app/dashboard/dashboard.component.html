@@ -1,17 +1,32 @@
-<h1>Dashboard</h1>
-<p>
-    Bienvenue {{ user.name }}, que faisons-nous aujourd'hui ?
-</p>
-
-<ul>
-    <li *ngFor="let skill of skills">
-        {{ skill.name }}
-        <img *ngIf="skill.logo" [src]="skill.logo" alt="">
-    </li>
-</ul>
-
-<ul>
-    <li *ngFor="let client of clients">
-        <app-client-item [client]="client"></app-client-item>
-    </li>
-</ul>
+<mat-toolbar color="primary">
+    <h1>Dashboard</h1>
+</mat-toolbar>
+<section class="mx-2">
+    <div class="well mt-2">
+        <p>
+            Bienvenue {{ user.name }}, que faisons-nous aujourd'hui ?
+        </p>
+        <div class="flexbox">
+            <a routerLink="/clients/nouveau" mat-flat-button color="primary">Ajouter un client</a>
+            <a mat-flat-button color="primary" disabled class="ml-2">Ajouter une compétence</a>
+        </div>
+    </div>
+        
+    <div class="well mt-2">
+        <h2>Compétences récentes</h2>
+        <ul class="list">
+            <li *ngFor="let skill of skills">
+                {{ skill.name }}
+                <img *ngIf="skill.logo" [src]="skill.logo" alt="">
+            </li>
+        </ul>
+    </div>
+    <div class="well mt-2">    
+        <h2>Les derniers clients</h2>
+        <ul class="list">
+            <li *ngFor="let client of clients">
+                <app-client-item [client]="client"></app-client-item>
+            </li>
+        </ul>
+    </div>
+</section>

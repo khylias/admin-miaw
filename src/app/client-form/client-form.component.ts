@@ -39,6 +39,10 @@ export class ClientFormComponent implements OnInit {
     }
 
     submit() {
+        if(!this.form.valid) {
+            return;
+        }
+        
         if(this.isEdit) {
             this.update();
         } else {

@@ -49,6 +49,10 @@ const routes: Routes = [
         path: 'dashboard',
         canActivate: [AuthenticationGuard],
         component: DashboardComponent
+    },
+    {
+        path: '**',
+        redirectTo: 'dashboard'
     }
 ];
 
