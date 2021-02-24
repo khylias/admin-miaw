@@ -21,7 +21,7 @@
             </li>
         </ul>
     </div>
-    <div class="well mt-2">    
+    <div class="well mt-2" *ngIf="clients.length">    
         <h2>Les derniers clients</h2>
         <ul class="list">
             <li *ngFor="let client of clients">

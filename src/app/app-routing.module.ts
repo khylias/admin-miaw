@@ -9,12 +9,33 @@ import { SkillsComponent } from './skills/skills.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { LoginComponent } from './login/login.component';
 import { ClientComponent } from './client/client.component';
+import { SkillFormComponent } from './skill-form/skill-form.component';
 
 const routes: Routes = [
     {
         path: 'competences',
         canActivate: [AuthenticationGuard],
-        component: SkillsComponent
+        children: [
+            {
+                path: '',
+                component: SkillsComponent
+            },
+            {
+                path: 'nouveau',
+                component: SkillFormComponent
+            },
+            {
+                path: ':id',
+                component: SkillFormComponent,
+            },
+            {
+                path: ':id/edit',
+                component: SkillFormComponent,
+                data: {
+                    edit: true
+                }
+            },
+        ]
     },
     {
         path: 'connexion',

@@ -32,6 +32,8 @@ import { ClientFormComponent } from './client-form/client-form.component';
 import { LoginComponent } from './login/login.component';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { ClientComponent } from './client/client.component';
+import { SkillFormComponent } from './skill-form/skill-form.component';
+import { SkillsService } from './services/skills.service';
 
 @NgModule({
     declarations: [
@@ -42,7 +44,8 @@ import { ClientComponent } from './client/client.component';
         ClientItemComponent,
         ClientFormComponent,
         LoginComponent,
-        ClientComponent
+        ClientComponent,
+        SkillFormComponent
     ],
     imports: [
         BrowserModule,
@@ -68,6 +71,7 @@ import { ClientComponent } from './client/client.component';
     ],
     providers: [
         ClientsService,
+        SkillsService,
         UserService,
         TokenStorageService,
         {
